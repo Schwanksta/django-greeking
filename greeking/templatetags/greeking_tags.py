@@ -20,7 +20,7 @@ class FillMurrayNode(template.Node):
         self.color = color
 
     def render(self, context):
-        return '<img src="%s"/>' % get_fillmurray_url(
+        return get_fillmurray_url(
             self.width,
             self.height,
             color=self.color
@@ -66,7 +66,7 @@ class LoremPixumNode(template.Node):
         self.category = category
 
     def render(self, context):
-        return '<img src="%s"/>' % get_lorem_pixum_url(
+        return get_lorem_pixum_url(
             self.width,
             self.height,
             color=self.color,
@@ -158,7 +158,7 @@ def placeholdit(
         Custom text
         {% placeholdit 100 200 text='Hello LA' %}
     """
-    return '<img src="%s"/>' % get_placeholdit_url(
+    return get_placeholdit_url(
         width,
         height,
         background_color=background_color,
@@ -174,7 +174,7 @@ class PlaceKittenNode(template.Node):
         self.color = color
 
     def render(self, context):
-        return '<img src="%s"/>' % get_placekitten_url(
+        return get_placekitten_url(
             self.width,
             self.height,
             color=self.color
@@ -397,3 +397,4 @@ def jabberwocky(parser, token):
         )
     return JabberwockyNode(count)
 jabberwocky = register.tag(jabberwocky)
+
